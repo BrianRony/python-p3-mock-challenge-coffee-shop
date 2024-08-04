@@ -11,8 +11,6 @@ class Coffee:
     def name(self, name):
         if isinstance(name, str) and len(name) >= 3 and not hasattr(self, "name"):
             self._name = name
-        # else:
-        #     raise Exception
 
     def orders(self):
         return [order for order in Order.all if order.coffee is self]
@@ -41,8 +39,6 @@ class Customer:
     def name(self, name):
         if isinstance(name, str) and 1 <= len(name) <= 15:
             self._name = name
-        # else:
-        #     raise Exception
 
     def orders(self):
         return [order for order in Order.all if order.customer is self]
@@ -57,8 +53,6 @@ class Customer:
 
     @classmethod
     def most_aficionado(cls, coffee):
-        # if not isinstance(coffee, Coffee):
-        #     raise Exception
         if coffee_all_orders := [
             order for order in Order.all if order.coffee is coffee
         ]:
